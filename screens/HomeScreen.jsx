@@ -31,7 +31,6 @@ export const HomeScreen = ({ navigation }) => {
   const location = useSelector((state) => state.weather.selectedLocation);
   const dispatch = useDispatch();
   const fetchedTime = useSelector((state) => state.weather.fetchedTime);
-  const [loading, setLoading] = useState(false);
 
   const onRefresh = useCallback(() => {
     fetchWeatherData();
@@ -57,9 +56,7 @@ export const HomeScreen = ({ navigation }) => {
   };
 
   useEffect(() => {
-    setLoading(true);
     fetchWeatherData();
-    setLoading(false);
   }, [location]);
 
   return (
